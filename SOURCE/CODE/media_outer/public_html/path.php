@@ -8,14 +8,6 @@
 	or visit http://crypticrising.com/MIT
 */
 crypCheck() or die();
-include(pathREL."cnf/common/defaultCONF.php");
-include(pathPRV."cnf/localization/".LANG."/langCONF.php");
-include(pathPRV."inc/common/sysCrypLIB.php");
-include(pathPRV."inc/common/dbCryptLIB.php");
-define("token",genTOKEN($_SESSION));
-$_SESSION['token'] = token;
-$_SESSION = initSession($_SESSION);
-$_SESSION = agentSession($_SESSION,$_SERVER['HTTP_USER_AGENT']);
-runPlugins($itx,$_SESSION);
-die();
-exit();
+if(isset($itx)) { unset($itx); }
+$itx = array();
+define("pathREL","../ps/");
